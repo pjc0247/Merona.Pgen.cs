@@ -19,11 +19,16 @@ namespace <#= entry.prefix #> {
 			<# foreach(var field in packet.c2sFields) { #>
 			<#= field.ToString() #>
 			<# } #>
+
+			public C2S() {
+				this.id = <#= id #>;
+			}
 		}
 		<# } #>
 
 		<#// S2C Fields #>
 		<# if(packet.s2cFields.Count > 0) { #>
+		[PacketId(<#= id++ #>)]
 		[StructLayout(LayoutKind.Sequential, Pack = 1)]
 		public sealed class S2C : Merona.Packet {
 			<# foreach(var field in packet.commonFields) { #>
@@ -32,6 +37,10 @@ namespace <#= entry.prefix #> {
 			<# foreach(var field in packet.s2cFields) { #>
 			<#= field.ToString() #>
 			<# } #>
+
+			public S2C() {
+				this.id = <#= id #>;
+			}
 		}
 		<# } #>
 	}

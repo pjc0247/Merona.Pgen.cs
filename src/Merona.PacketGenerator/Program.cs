@@ -52,8 +52,7 @@ namespace Merona.PacketGenerator
     }
     public class PacketData
     {
-        
-
+        public int id { get; set; }
         public String name { get; set; }
 
         public PacketFields commonFields { get; set; }
@@ -102,10 +101,12 @@ namespace Merona.PacketGenerator
     partial class OutputCSharp
     {
         private PgenData pgen { get; set; }
+        private int id { get; set; }
 
         public OutputCSharp(PgenData pgen)
         {
             this.pgen = pgen;
+            this.id = 0;
         }
     }
 }

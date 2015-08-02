@@ -52,7 +52,8 @@ namespace Merona.PacketGenerator
                     entry.prefix = type.Name;
                     foreach (var packet in type.GetNestedTypes())
                     {
-                        entry.packets.Add(ParsePacket(packet));
+                        var packetData = ParsePacket(packet);
+                        entry.packets.Add(packetData);
                     }
 
                     pgen.entries.Add(entry);

@@ -23,6 +23,17 @@ namespace Testbed
             [S2C]
             public bool result;
         }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public class Logout
+        {
+            [C2S]
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            public String id;
+
+            [S2C]
+            public bool result;
+        }
     }
 
     class Program
@@ -43,6 +54,7 @@ namespace Testbed
         }
         static void Main(string[] args)
         {
+
             var obj = new MyGamePackets.Login();
 
             obj.id = "ASDFASDFASDFASDFASDF";
