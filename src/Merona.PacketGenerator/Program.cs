@@ -12,29 +12,17 @@ namespace Merona.PacketGenerator
 {
     using PacketFields = Dictionary<String, PacketData.Type>;
 
-    [PgenTarget]
-    public class MyGamePackets
-    {
-        [StructLayout(LayoutKind.Sequential, Pack =1)]
-        public class Login
-        {
-            [C2S]
-            public String id;
-            public String password;
-        }
-    }
-
     [AttributeUsage(AttributeTargets.Field)]
-    class C2S : Attribute
+    public class C2S : Attribute
     {
     }
     [AttributeUsage(AttributeTargets.Field)]
-    class S2C : Attribute
+    public class S2C : Attribute
     {
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    class PgenTarget : Attribute
+    public class PgenTarget : Attribute
     {
     }
 
@@ -93,14 +81,6 @@ namespace Merona.PacketGenerator
         public OutputCSharp(PgenData pgen)
         {
             this.pgen = pgen;
-        }
-    }
-    class Program
-    {
-        
-        static void Main(string[] args)
-        {
-            P.Gen("test.cs", P.Target.Csharp);
         }
     }
 }
