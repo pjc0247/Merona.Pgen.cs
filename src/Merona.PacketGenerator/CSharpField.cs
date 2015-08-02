@@ -28,16 +28,43 @@ namespace Merona.PacketGenerator
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\npublic ");
+            
+            #line 6 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
+ if(field.marshal != null ) { 
+            
+            #line default
+            #line hidden
+            this.Write("[MarshalAs(UnmanagedType.");
             
             #line 7 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(field.marshal.Value));
+            
+            #line default
+            #line hidden
+            this.Write(", SizeConst = ");
+            
+            #line 7 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(field.marshal.SizeConst));
+            
+            #line default
+            #line hidden
+            this.Write(")]\r\n");
+            
+            #line 8 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("public ");
+            
+            #line 9 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 7 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
+            #line 9 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\CSharpField.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.name));
             
             #line default

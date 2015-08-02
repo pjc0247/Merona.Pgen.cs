@@ -3,5 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-
+<# if(field.marshal != null ) { #>
+[MarshalAs(UnmanagedType.<#= field.marshal.Value #>, SizeConst = <#= field.marshal.SizeConst #>)]
+<# } #>
 public <#= field.type #> <#= field.name #>;
