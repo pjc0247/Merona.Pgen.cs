@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Merona.PacketGenerator
 {
@@ -16,22 +17,22 @@ namespace Merona.PacketGenerator
             S2C
         }
 
-        static PacketData.Type GetFieldType(FieldInfo field)
+        static FieldData.Type GetFieldType(FieldInfo field)
         {
             var type = field.FieldType;
 
             if (type == typeof(Int16))
-                return PacketData.Type.Int16;
+                return FieldData.Type.Int16;
             else if (type == typeof(Int32))
-                return PacketData.Type.Int32;
+                return FieldData.Type.Int32;
             else if (type == typeof(Int64))
-                return PacketData.Type.Int64;
+                return FieldData.Type.Int64;
             else if (type == typeof(String))
-                return PacketData.Type.String;
+                return FieldData.Type.String;
             else if (type == typeof(float))
-                return PacketData.Type.Float;
+                return FieldData.Type.Float;
             else if (type == typeof(bool))
-                return PacketData.Type.Bool;
+                return FieldData.Type.Bool;
 
             throw new ArgumentException("unsupported type");
         }
@@ -47,7 +48,7 @@ namespace Merona.PacketGenerator
                 if (attr != null)
                 {
                     var entry = new PacketListEntry();
-
+                    
                     entry.prefix = type.Name;
                     foreach (var packet in type.GetNestedTypes())
                     {
@@ -81,21 +82,34 @@ namespace Merona.PacketGenerator
 
             foreach (var field in fields)
             {
-                if (field.GetCustomAttribute<C2S>() != null)
-                    fieldType = FieldType.C2S;
-                else if (field.GetCustomAttribute<S2C>() != null)
-                    fieldType = FieldType.S2C;
-
+                var fieldData = new FieldData();
+                fieldData.field = field;
+                fieldData.type = GetFieldType(field);
+                
+                /* 속성들 파싱 */
+                var attrs = field.GetCustomAttributes();
+                foreach (var attr in attrs)
+                {
+                    if (attr.GetType() == typeof(C2S))
+                        fieldType = FieldType.C2S;
+                    else if (attr.GetType() == typeof(S2C))
+                        fieldType = FieldType.S2C;
+                    else if (attr.GetType() == typeof(MarshalAsAttribute))
+                    {
+                        fieldData.marshal = (MarshalAsAttribute)attr;
+                    }
+                }
+                
                 switch (fieldType)
                 {
                     case FieldType.Common:
-                        data.commonFields.Add(field.Name, GetFieldType(field));
+                        data.commonFields.Add(field.Name, fieldData);
                         break;
                     case FieldType.C2S:
-                        data.c2sFields.Add(field.Name, GetFieldType(field));
+                        data.c2sFields.Add(field.Name, fieldData);
                         break;
                     case FieldType.S2C:
-                        data.s2cFields.Add(field.Name, GetFieldType(field));
+                        data.s2cFields.Add(field.Name, fieldData);
                         break;
                 }
             }

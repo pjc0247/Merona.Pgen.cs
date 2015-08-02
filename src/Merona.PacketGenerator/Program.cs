@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TextTemplating;
 
 namespace Merona.PacketGenerator
 {
-    using PacketFields = Dictionary<String, PacketData.Type>;
+    using PacketFields = Dictionary<String, FieldData>;
 
     [AttributeUsage(AttributeTargets.Field)]
     public class C2S : Attribute
@@ -27,7 +27,7 @@ namespace Merona.PacketGenerator
     }
 
 
-    public class PacketData
+    public class FieldData
     {
         public enum Type
         {
@@ -38,6 +38,15 @@ namespace Merona.PacketGenerator
             String,
             Bool
         }
+
+        public FieldInfo field { get; set; }
+        public Type type { get; set; }
+
+        public MarshalAsAttribute marshal { get;set; }
+    }
+    public class PacketData
+    {
+        
 
         public String name { get; set; }
 
