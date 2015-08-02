@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TextTemplating;
 
 namespace Merona.PacketGenerator
 {
-    using PacketFields = Dictionary<String, FieldData>;
+    using PacketFields = List<FieldData>;
 
     [AttributeUsage(AttributeTargets.Field)]
     public class C2S : Attribute
@@ -41,8 +41,14 @@ namespace Merona.PacketGenerator
 
         public FieldInfo field { get; set; }
         public Type type { get; set; }
+        public String name { get; set; }
 
         public MarshalAsAttribute marshal { get;set; }
+
+        public virtual String ToString()
+        {
+            return new CSharpField(this).TransformText();
+        }
     }
     public class PacketData
     {
@@ -84,6 +90,15 @@ namespace Merona.PacketGenerator
         }
     }
 
+    partial class CSharpField
+    {
+        private FieldData field { get; set; }
+
+        public CSharpField(FieldData field)
+        {
+            this.field = field;
+        }
+    }
     partial class OutputCSharp
     {
         private PgenData pgen { get; set; }

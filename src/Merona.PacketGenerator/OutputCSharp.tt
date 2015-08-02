@@ -13,10 +13,10 @@ namespace <#= entry.prefix #> {
 		<# if(packet.c2sFields.Count > 0) { #>
 		public sealed class C2S {
 			<# foreach(var field in packet.commonFields) { #>
-			public <#= field.Value.ToString() #> <#= field.Key #>;
+			<#= field.ToString() #>
 			<# } #>
 			<# foreach(var field in packet.c2sFields) { #>
-			public <#= field.Value.ToString() #> <#= field.Key #>;
+			<#= field.ToString() #>
 			<# } #>
 		}
 		<# } #>
@@ -25,10 +25,10 @@ namespace <#= entry.prefix #> {
 		<# if(packet.s2cFields.Count > 0) { #>
 		public sealed class S2C {
 			<# foreach(var field in packet.commonFields) { #>
-			public <#= field.Value.ToString() #> <#= field.Key #>;
+			<#= field.ToString() #>
 			<# } #>
 			<# foreach(var field in packet.s2cFields) { #>
-			public <#= field.Value.ToString() #> <#= field.Key #>;
+			<#= field.ToString() #>
 			<# } #>
 		}
 		<# } #>

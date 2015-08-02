@@ -64,7 +64,7 @@ namespace Merona.PacketGenerator
                 foreach (var packet in entry.packets)
                 {
                     foreach (var c2s in packet.c2sFields)
-                        Console.WriteLine("S2C {0} : {1}", c2s.Key, c2s.Value);
+                        Console.WriteLine("S2C {0} : {1}", c2s.name, c2s.type);
                 }
             }
 
@@ -85,7 +85,8 @@ namespace Merona.PacketGenerator
                 var fieldData = new FieldData();
                 fieldData.field = field;
                 fieldData.type = GetFieldType(field);
-                
+                fieldData.name = field.Name;
+                 
                 /* 속성들 파싱 */
                 var attrs = field.GetCustomAttributes();
                 foreach (var attr in attrs)
@@ -103,13 +104,13 @@ namespace Merona.PacketGenerator
                 switch (fieldType)
                 {
                     case FieldType.Common:
-                        data.commonFields.Add(field.Name, fieldData);
+                        data.commonFields.Add(fieldData);
                         break;
                     case FieldType.C2S:
-                        data.c2sFields.Add(field.Name, fieldData);
+                        data.c2sFields.Add(fieldData);
                         break;
                     case FieldType.S2C:
-                        data.s2cFields.Add(field.Name, fieldData);
+                        data.s2cFields.Add(fieldData);
                         break;
                 }
             }
