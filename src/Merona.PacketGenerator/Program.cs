@@ -35,7 +35,8 @@ namespace Merona.PacketGenerator
             Int32,
             Int64,
             Float,
-            String
+            String,
+            Bool
         }
 
         public String name { get; set; }

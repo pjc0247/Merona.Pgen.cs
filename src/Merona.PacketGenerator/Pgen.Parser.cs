@@ -30,6 +30,8 @@ namespace Merona.PacketGenerator
                 return PacketData.Type.String;
             else if (type == typeof(float))
                 return PacketData.Type.Float;
+            else if (type == typeof(bool))
+                return PacketData.Type.Bool;
 
             throw new ArgumentException("unsupported type");
         }

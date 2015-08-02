@@ -18,6 +18,9 @@ namespace Testbed
             [C2S]
             public String id;
             public String password;
+
+            [S2C]
+            public bool result;
         }
     }
 
