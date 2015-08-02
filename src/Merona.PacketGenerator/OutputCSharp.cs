@@ -70,7 +70,7 @@ namespace Merona.PacketGenerator
             
             #line default
             #line hidden
-            this.Write("\t\tpublic sealed class C2S {\r\n\t\t\t");
+            this.Write("\t\tpublic sealed class C2S : Merona.Packet {\r\n\t\t\t");
             
             #line 15 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.commonFields) { 
@@ -133,7 +133,7 @@ namespace Merona.PacketGenerator
             
             #line default
             #line hidden
-            this.Write("\t\tpublic sealed class S2C {\r\n\t\t\t");
+            this.Write("\t\tpublic sealed class S2C : Merona.Packet {\r\n\t\t\t");
             
             #line 27 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.commonFields) { 

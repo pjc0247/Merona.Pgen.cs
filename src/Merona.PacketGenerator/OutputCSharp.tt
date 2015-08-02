@@ -11,7 +11,7 @@ namespace <#= entry.prefix #> {
 		
 		<#// C2S Fields #>
 		<# if(packet.c2sFields.Count > 0) { #>
-		public sealed class C2S {
+		public sealed class C2S : Merona.Packet {
 			<# foreach(var field in packet.commonFields) { #>
 			<#= field.ToString() #>
 			<# } #>
@@ -23,7 +23,7 @@ namespace <#= entry.prefix #> {
 
 		<#// S2C Fields #>
 		<# if(packet.s2cFields.Count > 0) { #>
-		public sealed class S2C {
+		public sealed class S2C : Merona.Packet {
 			<# foreach(var field in packet.commonFields) { #>
 			<#= field.ToString() #>
 			<# } #>
