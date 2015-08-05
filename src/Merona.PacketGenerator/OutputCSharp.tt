@@ -22,13 +22,14 @@ namespace <#= entry.prefix #> {
 			<# } #>
 
 			public C2S() {
+				this.size = <#= Marshal.SizeOf(GetType()); #>;
 				this.id = <#= id++ #>;
 			}
 		}
 		<# } #>
 
 		<#// S2C Fields #>
-		<# if(packet.s2cFields.Count > 0) { #>
+		<# if(packet.s2cFields.Count > 0) {  #>
 		[PacketId(<#= id #>)]
 		[StructLayout(LayoutKind.Sequential, Pack = 1)]
 		public sealed class S2C : Merona.Packet {
@@ -40,6 +41,7 @@ namespace <#= entry.prefix #> {
 			<# } #>
 
 			public S2C() {
+				this.size = <#= Marshal.SizeOf(GetType()); #>;
 				this.id = <#= id++ #>;
 			}
 		}

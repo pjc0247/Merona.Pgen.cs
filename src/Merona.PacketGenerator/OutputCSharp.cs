@@ -18,7 +18,7 @@ namespace Merona.PacketGenerator
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+    #line 1 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class OutputCSharp : OutputCSharpBase
     {
@@ -30,49 +30,49 @@ namespace Merona.PacketGenerator
         {
             this.Write("\r\n");
             
-            #line 7 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 7 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var entry in pgen.entries) { 
             
             #line default
             #line hidden
             this.Write("namespace ");
             
-            #line 8 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 8 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entry.prefix));
             
             #line default
             #line hidden
             this.Write(" {\r\n\t");
             
-            #line 9 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 9 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var packet in entry.packets) { 
             
             #line default
             #line hidden
             this.Write("\tpublic sealed class ");
             
-            #line 10 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 10 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(packet.name));
             
             #line default
             #line hidden
             this.Write(" {\r\n\t\t\r\n\t\t");
             
-            #line 12 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 12 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
 // C2S Fields 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 13 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 13 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  if(packet.c2sFields.Count > 0) { 
             
             #line default
             #line hidden
             this.Write("\t\t[PacketId(");
             
-            #line 14 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 14 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(id));
             
             #line default
@@ -80,77 +80,84 @@ namespace Merona.PacketGenerator
             this.Write(")]\r\n\t\t[StructLayout(LayoutKind.Sequential, Pack = 1)]\r\n\t\tpublic sealed class C2S " +
                     ": Merona.Packet {\r\n\t\t\t");
             
-            #line 17 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 17 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.commonFields) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 18 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 18 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ToString()));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 19 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 19 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 20 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 20 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.c2sFields) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 21 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 21 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ToString()));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 22 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 22 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\r\n\t\t\tpublic C2S() {\r\n\t\t\t\tthis.id = ");
+            this.Write("\r\n\t\t\tpublic C2S() {\r\n\t\t\t\tthis.size = ");
             
-            #line 25 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 25 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Marshal.SizeOf(GetType());));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\t\t\t\tthis.id = ");
+            
+            #line 26 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(id++));
             
             #line default
             #line hidden
             this.Write(";\r\n\t\t\t}\r\n\t\t}\r\n\t\t");
             
-            #line 28 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 29 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t");
             
-            #line 30 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 31 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
 // S2C Fields 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 31 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
- if(packet.s2cFields.Count > 0) { 
+            #line 32 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+ if(packet.s2cFields.Count > 0) {  
             
             #line default
             #line hidden
             this.Write("\t\t[PacketId(");
             
-            #line 32 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 33 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(id));
             
             #line default
@@ -158,70 +165,77 @@ namespace Merona.PacketGenerator
             this.Write(")]\r\n\t\t[StructLayout(LayoutKind.Sequential, Pack = 1)]\r\n\t\tpublic sealed class S2C " +
                     ": Merona.Packet {\r\n\t\t\t");
             
-            #line 35 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 36 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.commonFields) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 36 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 37 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ToString()));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 37 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 38 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 38 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 39 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  foreach(var field in packet.s2cFields) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 39 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 40 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ToString()));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 40 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 41 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\r\n\t\t\tpublic S2C() {\r\n\t\t\t\tthis.id = ");
+            this.Write("\r\n\t\t\tpublic S2C() {\r\n\t\t\t\tthis.size = ");
             
-            #line 43 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 44 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Marshal.SizeOf(GetType());));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\t\t\t\tthis.id = ");
+            
+            #line 45 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(id++));
             
             #line default
             #line hidden
             this.Write(";\r\n\t\t\t}\r\n\t\t}\r\n\t\t");
             
-            #line 46 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 48 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t}\r\n\t");
             
-            #line 48 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 50 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
             #line hidden
             this.Write("}\r\n");
             
-            #line 50 "E:\repos\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
+            #line 52 "C:\Users\hyun\Documents\GitHub\Merona.Pgen.cs\src\Merona.PacketGenerator\OutputCSharp.tt"
  } 
             
             #line default
