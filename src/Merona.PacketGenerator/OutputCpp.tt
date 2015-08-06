@@ -6,42 +6,32 @@
 
 <# foreach(var entry in pgen.entries) { #>
 namespace <#= entry.prefix #> {
+	
 	<# foreach(var packet in entry.packets) { #>
-	public sealed class <#= packet.name #> {
+	<#= packet.name #>
+	struct <#= packet.name #> {
 		
 		<#// C2S Fields #>
 		<# if(packet.c2sFields.Count > 0) { #>
-		[PacketId(<#= id #>)]
-		[StructLayout(LayoutKind.Sequential, Pack = 1)]
-		public sealed class C2S : Merona.Packet {
+		struct C2S {
 			<# foreach(var field in packet.commonFields) { #>
-			<#= field.ToCSharpField() #>
+			<#= field.ToCppField() #>
 			<# } #>
 			<# foreach(var field in packet.c2sFields) { #>
-			<#= field.ToCSharpField() #>
+			<#= field.ToCppField() #>
 			<# } #>
-
-			public C2S() {
-				this.id = <#= id++ #>;
-			}
 		}
 		<# } #>
 
 		<#// S2C Fields #>
 		<# if(packet.s2cFields.Count > 0) { #>
-		[PacketId(<#= id #>)]
-		[StructLayout(LayoutKind.Sequential, Pack = 1)]
-		public sealed class S2C : Merona.Packet {
+		struct S2C {
 			<# foreach(var field in packet.commonFields) { #>
-			<#= field.ToCSharpField() #>
+			<#= field.ToCppField() #>
 			<# } #>
 			<# foreach(var field in packet.s2cFields) { #>
-			<#= field.ToCSharpField() #>
+			<#= field.ToCppField() #>
 			<# } #>
-
-			public S2C() {
-				this.id = <#= id++ #>;
-			}
 		}
 		<# } #>
 	}

@@ -18,6 +18,7 @@ namespace Testbed
             [C2S]            
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst =32)]
             public String id;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
             public String password;
 
             [S2C]
@@ -67,7 +68,7 @@ namespace Testbed
                 Console.Write(b.ToString() + " ");
             Console.WriteLine();
 
-            P.Gen("output_test.cs", P.Target.Csharp);
+            P.Gen("output_test.cpp", P.Target.Cpp);
         }
     }
 }

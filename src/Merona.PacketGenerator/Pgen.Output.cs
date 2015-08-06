@@ -16,7 +16,8 @@ namespace Merona.PacketGenerator
         }
         private static String BuildCpp(PgenData data)
         {
-            throw new NotImplementedException();
+            OutputCpp cpp = new OutputCpp(data);
+            return cpp.TransformText();
         }
 
         private static void Output(String path, PgenData data, Target target)
