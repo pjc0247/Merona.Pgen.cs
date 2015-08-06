@@ -8,7 +8,6 @@
 namespace <#= entry.prefix #> {
 	
 	<# foreach(var packet in entry.packets) { #>
-	<#= packet.name #>
 	struct <#= packet.name #> {
 		
 		<#// C2S Fields #>
