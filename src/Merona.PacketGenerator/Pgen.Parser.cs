@@ -81,6 +81,8 @@ namespace Merona.PacketGenerator
 
             FieldType fieldType = FieldType.Common;
 
+            data.name = packet.Name;
+
             foreach (var field in fields)
             {
                 var fieldData = new FieldData();

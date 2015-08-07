@@ -45,7 +45,11 @@ namespace Merona.PacketGenerator
 
         public MarshalAsAttribute marshal { get;set; }
 
-        public virtual String ToString()
+        public String ToCppField()
+        {
+            return new CppField(this).TransformText();
+        }
+        public String ToCSharpField()
         {
             return new CSharpField(this).TransformText();
         }
@@ -88,7 +92,56 @@ namespace Merona.PacketGenerator
             entries = new List<PacketListEntry>();
         }
     }
+    partial class OutputCpp
+    {
+        private PgenData pgen { get; set; }
+        private int id { get; set; }
 
+        public OutputCpp(PgenData pgen)
+        {
+            this.pgen = pgen;
+            this.id = 0;
+        }
+    }
+
+    partial class CppField
+    {
+        private FieldData field { get; set; }
+
+        public CppField(FieldData field)
+        {
+            this.field = field;
+        }
+
+        private String TypeToString()
+        {
+            switch (field.type)
+            {
+                case FieldData.Type.Bool:
+                    return "bool";
+                case FieldData.Type.Float:
+                    return "float";
+                case FieldData.Type.Int16:
+                    return "short";
+                case FieldData.Type.Int32:
+                    return "int";
+                case FieldData.Type.Int64:
+                    return "long int";
+                case FieldData.Type.String:
+                    return "char";
+            }
+            throw new InvalidOperationException();
+        }
+        private String SuffixToString()
+        {
+            if (field.type == FieldData.Type.String)
+            {
+                return "[" + field.marshal.SizeConst.ToString() + "]";
+            }
+
+            return "";
+        }
+    }
     partial class CSharpField
     {
         private FieldData field { get; set; }

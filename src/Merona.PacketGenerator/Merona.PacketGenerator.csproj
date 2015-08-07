@@ -47,10 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CppField.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CppField.tt</DependentUpon>
+    </Compile>
     <Compile Include="CSharpField.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CSharpField.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputCpp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OutputCpp.tt</DependentUpon>
     </Compile>
     <Compile Include="OutputCSharp.cs">
       <AutoGen>True</AutoGen>
@@ -70,9 +80,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CppField.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CppField.cs</LastGenOutput>
+    </Content>
     <Content Include="CSharpField.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CSharpField.cs</LastGenOutput>
+    </Content>
+    <Content Include="OutputCpp.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>OutputCpp.cs</LastGenOutput>
     </Content>
     <Content Include="OutputCSharp.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
