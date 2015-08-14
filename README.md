@@ -2,7 +2,8 @@ Merona.Pgen.cs
 ====
 pgen packet generator for Merona.cs
 
-Pgen을 이용하면 Merona 서버, 혹은 Merona서버와 통신할 클라이언트에서 사용할 패킷을 쉽게 빌드할 수 있습니다.
+Pgen을 이용하면 Merona 서버, 혹은 Merona서버와 통신할 클라이언트에서 사용할 패킷을 쉽게 빌드할 수 있습니다.<br>
+다른 패킷 빌더들과는 다르게 자체 스크립트를 사용하지 않고 C# 환경에서 동작하며, C# 문법에 맞게 패킷 스키마를 작성하기만 하면 되기 때문에 추가적인 배움의 진입장벽이 매우 낮습니다.
 
 ![ss](pgen.png)<br>
 
