@@ -68,7 +68,7 @@ namespace Testbed
                 Console.Write(b.ToString() + " ");
             Console.WriteLine();
 
-            P.Gen("output_test.cpp", P.Target.Cpp);
+            P.Gen("output_test.cs", P.Target.Csharp);
         }
     }
 }

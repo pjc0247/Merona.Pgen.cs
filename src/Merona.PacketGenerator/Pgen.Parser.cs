@@ -82,6 +82,15 @@ namespace Merona.PacketGenerator
             FieldType fieldType = FieldType.Common;
 
             data.name = packet.Name;
+            data.type = packet;
+
+            foreach(var attr in packet.GetCustomAttributes())
+            {
+                if (attr.GetType() == typeof(Emit))
+                {
+                    data.emits.Add(((Emit)attr).msg);
+                }
+            }
 
             foreach (var field in fields)
             {
@@ -101,6 +110,10 @@ namespace Merona.PacketGenerator
                     else if (attr.GetType() == typeof(MarshalAsAttribute))
                     {
                         fieldData.marshal = (MarshalAsAttribute)attr;
+                    }
+                    else if(attr.GetType() == typeof(Emit))
+                    {
+                        fieldData.emits.Add(((Emit)attr).msg);
                     }
                 }
                 

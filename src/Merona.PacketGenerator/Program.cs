@@ -26,6 +26,16 @@ namespace Merona.PacketGenerator
     {
     }
 
+    public class Emit : Attribute
+    {
+        public String msg { get; set; }
+
+        public Emit(String msg)
+        {
+            this.msg = msg;
+        }
+    }
+
 
     public class FieldData
     {
@@ -45,6 +55,13 @@ namespace Merona.PacketGenerator
 
         public MarshalAsAttribute marshal { get;set; }
 
+        public List<String> emits { get; set; }
+
+        public FieldData()
+        {
+            emits = new List<String>();
+        }
+
         public String ToCppField()
         {
             return new CppField(this).TransformText();
@@ -58,16 +75,20 @@ namespace Merona.PacketGenerator
     {
         public int id { get; set; }
         public String name { get; set; }
+        public Type type { get; set; }
 
         public PacketFields commonFields { get; set; }
         public PacketFields c2sFields { get; set; }
         public PacketFields s2cFields { get; set; }
 
+        public List<String> emits { get; set; }
+  
         public PacketData()
         {
             commonFields = new PacketFields();
             c2sFields = new PacketFields();
             s2cFields = new PacketFields();
+            emits = new List<String>();
 
             name = "";
         }

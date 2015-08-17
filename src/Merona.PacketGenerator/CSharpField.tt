@@ -6,4 +6,7 @@
 <# if(field.marshal != null ) { #>
 [MarshalAs(UnmanagedType.<#= field.marshal.Value #>, SizeConst = <#= field.marshal.SizeConst #>)]
 <# } #>
+<# foreach(var emit in field.emits) { #>
+[<#= emit #>]
+<# } #>
 public <#= field.type #> <#= field.name #>;

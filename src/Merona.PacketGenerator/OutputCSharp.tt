@@ -3,6 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Runtime.InteropServices" #>
 
 <# foreach(var entry in pgen.entries) { #>
 namespace <#= entry.prefix #> {
@@ -22,7 +23,7 @@ namespace <#= entry.prefix #> {
 			<# } #>
 
 			public C2S() {
-				this.size = <#= Marshal.SizeOf(GetType()); #>;
+				this.size = <#= Marshal.SizeOf(packet.type) #>;
 				this.id = <#= id++ #>;
 			}
 		}
@@ -41,7 +42,7 @@ namespace <#= entry.prefix #> {
 			<# } #>
 
 			public S2C() {
-				this.size = <#= Marshal.SizeOf(GetType()); #>;
+				this.size = <#= Marshal.SizeOf(packet.type) #>;
 				this.id = <#= id++ #>;
 			}
 		}
